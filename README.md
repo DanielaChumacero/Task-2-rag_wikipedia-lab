@@ -1,4 +1,4 @@
-# Task-2-rag_wikipedia-lab
+# Task-2-rag_wikipedia-lab + Bonus Task — Conceptual Comparison
 # 📚 Task 2: Wikipedia-based RAG Summarizer
 
 ## 🎯 Overview
@@ -313,6 +313,204 @@ After completing this task, you will understand:
 
 ---
 
+## 🌟 Bonus Task: Multi-Agent vs RAG Comparison (+3 pts)
+
+### Overview
+After completing both tasks, write a comparative analysis examining the strengths and weaknesses of each approach.
+
+### Requirements
+
+Create a Markdown document (`reflection.md`) analyzing:
+
+#### 1. Handling Ambiguity and Contradictions
+**Compare:**
+- How did the multi-agent workflow resolve conflicting information?
+- Did the RAG approach identify contradictions in Wikipedia content?
+- Which system better handled uncertain or disputed facts?
+
+**Example Analysis:**
+```markdown
+The multi-agent system with its Researcher → Writer → Reviewer 
+pipeline provided multiple validation layers. The Reviewer agent 
+explicitly checked for factual inconsistencies...
+
+The RAG system retrieved multiple chunks that sometimes contained 
+conflicting information. Without explicit contradiction detection...
+```
+
+#### 2. Factuality and Retrieval Coverage
+**Compare:**
+- Multi-agent: Real-time web search vs Wikipedia's static knowledge
+- RAG: Comprehensive coverage within corpus vs limited scope
+- Which had better source quality and reliability?
+
+**Metrics to Consider:**
+- Number of sources accessed
+- Source diversity (web vs encyclopedia)
+- Information freshness (2024 vs historical)
+- Coverage depth vs breadth
+
+#### 3. Question Type Suitability
+**Analyze which approach works better for:**
+
+| Question Type | Multi-Agent | RAG | Winner |
+|---------------|-------------|-----|--------|
+| Factual ("What is X?") | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | RAG |
+| Current Events | ⭐⭐⭐⭐⭐ | ⭐ | Multi-Agent |
+| Comparative Analysis | ⭐⭐⭐⭐ | ⭐⭐⭐ | Multi-Agent |
+| Opinion/Trends | ⭐⭐⭐⭐ | ⭐⭐ | Multi-Agent |
+| Technical Definitions | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | RAG |
+
+#### 4. Performance Comparison
+
+**Execution Metrics:**
+```markdown
+| Metric | Multi-Agent | RAG | Analysis |
+|--------|-------------|-----|----------|
+| Setup Time | 2 min | 3 min | RAG requires embedding generation |
+| Query Time | 30-60s | 2-3s | RAG much faster after setup |
+| Scalability | Moderate | High | RAG better for repeated queries |
+| API Cost | High* | None | *If using paid APIs |
+| Accuracy | Variable | Consistent | RAG limited to corpus quality |
+```
+
+#### 5. Key Insights
+
+**When to Use Multi-Agent:**
+- ✅ Need current, real-time information
+- ✅ Topic requires diverse web sources
+- ✅ Complex synthesis across multiple viewpoints
+- ✅ Exploratory or open-ended research
+- ✅ Quality validation through multiple checks
+
+**When to Use RAG:**
+- ✅ Well-defined knowledge domain
+- ✅ Speed is critical (after initial setup)
+- ✅ Factual, reference-style questions
+- ✅ Consistent, repeatable answers needed
+- ✅ Budget constraints (no API costs)
+- ✅ Source attribution is important
+
+#### 6. Hybrid Approach Proposal
+
+**Recommended Architecture:**
+```
+User Query
+    ↓
+Intent Classification
+    ├─ "Current events?" → Multi-Agent (Web Search)
+    ├─ "Definition/Fact?" → RAG (Vector DB)
+    └─ "Complex analysis?" → Both (Cross-validation)
+    ↓
+Synthesized Response
+```
+
+**Benefits:**
+- Leverages strengths of both approaches
+- Optimizes for speed and accuracy
+- Reduces unnecessary API costs
+- Provides validation through multiple methods
+
+### Reflection Template Structure
+
+```markdown
+# Multi-Agent vs RAG: Comparative Analysis
+
+## Executive Summary
+[2-3 sentences on key findings]
+
+## 1. Ambiguity & Contradiction Handling
+### Multi-Agent Approach
+- Observations: ...
+- Strengths: ...
+- Weaknesses: ...
+
+### RAG Approach  
+- Observations: ...
+- Strengths: ...
+- Weaknesses: ...
+
+### Winner: [Your choice with justification]
+
+## 2. Factuality & Retrieval Coverage
+[Same structure]
+
+## 3. Question Type Analysis
+[Detailed comparison table]
+
+## 4. Performance Metrics
+[Actual measurements from your runs]
+
+## 5. Use Case Recommendations
+[Specific scenarios for each approach]
+
+## 6. Lessons Learned
+[Personal insights from implementation]
+
+## 7. Conclusion
+[Final recommendation and future work]
+```
+
+### Evaluation Criteria (3 points)
+
+| Criterion | Points | Description |
+|-----------|--------|-------------|
+| **Depth of Analysis** | 1.0 | Thoughtful comparison with specific examples |
+| **Technical Understanding** | 1.0 | Demonstrates grasp of both architectures |
+| **Practical Recommendations** | 1.0 | Clear guidance on when to use each |
+
+### Submission Guidelines
+
+**File**: `reflection.md` or `comparison.md`  
+**Location**: `/outputs/` directory in either repository  
+**Length**: 800-1200 words  
+**Format**: Markdown with tables and sections  
+
+**Must Include:**
+- Comparative tables
+- Specific examples from your implementations
+- Performance data from your runs
+- Clear recommendations
+- Hybrid approach proposal (bonus)
+
+### Sample Questions to Address
+
+1. Which approach handled healthcare privacy topics better?
+2. How did response time compare after initial setup?
+3. Which provided better source attribution?
+4. Which was easier to debug when errors occurred?
+5. How would you combine both approaches in production?
+6. What surprised you about each implementation?
+7. Which would you choose for a real medical AI project?
+
+### Tips for High-Quality Reflection
+
+✅ **Do:**
+- Use actual data from your implementations
+- Provide specific examples (not just theory)
+- Consider real-world production scenarios
+- Be honest about limitations of both
+- Propose creative combinations
+
+❌ **Don't:**
+- Make claims without evidence
+- Simply repeat documentation
+- Ignore weaknesses of preferred approach
+- Focus only on technical aspects (consider UX, cost, etc.)
+- Write generic comparisons
+
+### Bonus Within Bonus (Impress Your Instructor!)
+
+Consider analyzing:
+- **Latency breakdown**: Where does each system spend time?
+- **Error modes**: How does each fail and why?
+- **Extensibility**: Which is easier to improve/expand?
+- **Production readiness**: What's needed for deployment?
+- **Ethical considerations**: Privacy, bias, transparency
+- **Cost analysis**: API calls, compute, storage over time
+
+---
+
 ## 📞 Support
 
 If you encounter issues:
@@ -332,3 +530,13 @@ Your Task 2 is complete when:
 - ✅ `retrieval_examples.json` has query results
 - ✅ All files download successfully
 
+---
+
+**Status**: ✅ Production Ready  
+**Last Updated**: November 2024  
+**Maintainer**: AI Research Lab  
+**License**: Educational Use
+
+---
+
+## 🎉 Congratulations!
